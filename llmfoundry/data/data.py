@@ -113,5 +113,5 @@ class ConcatTokensDataset(IterableDataset):
                 buffer = buffer[self.max_length:] if self.should_wrap else []
                 yield {
                     # convert to bytes to store in MDS binary format
-                    'tokens': np.asarray(concat_sample).tobytes()
+                    'tokens': np.asarray(concat_sample)[::-1].tobytes()
                 }
